@@ -1,3 +1,15 @@
+## e-Koolikott [1.19.2](https://github.com/hariduspilv/koolikott/milestone/18)
+
+### Muutunud
+* Vaatamiste arvutamine ei tööta korrektselt [#351](https://github.com/hariduspilv/koolikott/issues/351)
+
+
+## e-Koolikott [1.19.1](https://github.com/hariduspilv/koolikott/milestone/18) (Toodangusse paigaldatud 31.05.2018)
+
+### Muutunud
+* Kogumiku kopeerimisel ei tule originaalkogumikust peatükid kaasa [#324](https://github.com/hariduspilv/koolikott/issues/324)
+
+
 ## e-Koolikott [1.19.0](https://github.com/hariduspilv/koolikott/milestone/18) (Toodangusse paigaldatud 25.05.2018)
 
 ### Muutunud
