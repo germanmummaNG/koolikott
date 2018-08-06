@@ -1,3 +1,8 @@
+## e-Koolikott [1.19.3](https://github.com/hariduspilv/koolikott/milestone/18) 
+
+### Muutunud
+* EHISe X-tee teenuse timeouti muudatus [#353](https://github.com/hariduspilv/koolikott/issues/353)
+
 ## e-Koolikott [1.19.2](https://github.com/hariduspilv/koolikott/milestone/18)
 
 ### Muutunud
