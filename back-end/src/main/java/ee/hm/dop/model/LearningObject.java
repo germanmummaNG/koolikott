@@ -103,7 +103,11 @@ public abstract class LearningObject implements Searchable, ILearningObject {
     private User creator;
 
     @Column(nullable = false)
-    private boolean deleted = false;
+    private boolean deleted;
+
+    @JsonIgnore
+    @Column(nullable = false)
+    private boolean promoted;
 
     // The date when the Learning Object was added to the system
     @Column(nullable = false)

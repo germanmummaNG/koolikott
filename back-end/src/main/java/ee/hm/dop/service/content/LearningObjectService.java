@@ -8,11 +8,16 @@ import ee.hm.dop.service.permission.PermissionItem;
 import ee.hm.dop.utils.ValidatorUtil;
 
 import javax.inject.Inject;
+import java.util.List;
 
 public class LearningObjectService {
 
     @Inject
     private LearningObjectDao learningObjectDao;
+
+    public List<LearningObject> findAllPromoted() {
+        return learningObjectDao.findByFieldList("promoted", true);
+    }
 
     public LearningObject get(long learningObjectId, User user) {
         LearningObject learningObject = learningObjectDao.findById(learningObjectId);

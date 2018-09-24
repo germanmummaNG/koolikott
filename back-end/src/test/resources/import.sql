@@ -271,7 +271,7 @@ insert into LearningObject(id, added, updated, views, picture, creator, deleted,
 insert into Material(id, lang, issueDate, source, repository, repositoryIdentifier, paid, isSpecialEducation, embeddable) values(32, null, null, 'http://www.bieber32.com', null, null, false, false, false);
 insert into LearningObject(id, added, updated, views, picture, creator, deleted, recommendation, visibility, licenseType) values(33, '1911-09-01 00:00:01', null, 0, null, null, false, null, 'PUBLIC', null);
 insert into Material(id, lang, issueDate, source, repository, repositoryIdentifier, paid, isSpecialEducation, embeddable) values(33, null, null, 'http://www.bieber33.com', null, null, false, false, false);
---Review test
+-- Review test
 insert into LearningObject(id, added, updated, views, picture, creator, deleted, recommendation, visibility, licenseType) values(34, '1911-09-01 00:00:01', null, 0, null, null, false, null, 'PUBLIC', null);
 insert into Material(id, lang, issueDate, source, repository, repositoryIdentifier, paid, isSpecialEducation, embeddable) values(34, null, null, 'http://www.bieber34.com', null, null, false, false, false);
 insert into LearningObject(id, added, updated, views, picture, creator, deleted, recommendation, visibility, licenseType) values(35, '1911-09-01 00:00:01', null, 0, null, null, false, null, 'PUBLIC', null);
@@ -284,6 +284,9 @@ insert into LearningObject(id, added, updated, views, picture, creator, deleted,
 insert into Material(id, lang, issueDate, source, repository, repositoryIdentifier, paid, isSpecialEducation, embeddable) values(38, null, null, 'http://www.bieber38.com', null, null, false, false, false);
 insert into LearningObject(id, added, updated, views, picture, creator, deleted, recommendation, visibility, licenseType) values(39, '1911-09-01 00:00:01', null, 0, null, null, false, null, 'PUBLIC', null);
 insert into Material(id, lang, issueDate, source, repository, repositoryIdentifier, paid, isSpecialEducation, embeddable) values(39, null, null, 'http://www.bieber39.com', null, null, false, false, false);
+
+insert into LearningObject(id, added, updated, views, picture, creator, deleted, recommendation, visibility, licenseType, promoted) values(40, '1911-09-01 00:00:01', null, 0, null, null, false, null, 'PUBLIC', null, 1);
+insert into Material(id, lang, issueDate, source, repository, repositoryIdentifier, paid, isSpecialEducation, embeddable) values(40, null, null, 'http://www.bieber39.com', null, null, false, false, false);
 
 
 -- Authors

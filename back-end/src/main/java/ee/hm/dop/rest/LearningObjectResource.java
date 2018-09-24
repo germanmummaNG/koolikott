@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Comparator;
+import java.util.List;
 
 import static com.google.common.primitives.Ints.min;
 
@@ -29,6 +30,12 @@ public class LearningObjectResource extends BaseResource {
     private UserLikeService userLikeService;
     @Inject
     private LearningObjectService learningObjectService;
+
+    @GET
+    @Path("promoted")
+    public List<LearningObject> promoted() {
+        return learningObjectService.findAllPromoted();
+    }
 
     @PUT
     @Path("{learningObjectId}/tags")

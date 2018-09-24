@@ -5,8 +5,11 @@ import ee.hm.dop.model.*;
 import ee.hm.dop.service.content.dto.TagDTO;
 import org.junit.Test;
 
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+
+import java.util.List;
 
 import static ee.hm.dop.rest.content.MaterialResourceTest.GET_MATERIAL_URL;
 import static java.lang.String.format;
@@ -30,6 +33,14 @@ public class LearningObjectResourceTest extends ResourceIntegrationTestBase {
     public static final String TEST_TAG = "timshel";
     public static final String TEST_TAG_2 = "timshel2";
     public static final String TEST_SYSTEM_TAG = "matemaatika";
+    public static final String GET_PROMOTED = "learningObject/promoted";
+
+    @Test
+    public void everybody_can_ask_for_promoted_materials() {
+        List<LearningObject> promoted = doGet(GET_PROMOTED, listOfLOs());
+        assertEquals(1, promoted.size());
+        assertEquals(MATERIAL_40, promoted.get(0).getId());
+    }
 
     @Test
     public void adding_tag_to_learning_object_adds_a_tag() {
@@ -220,5 +231,10 @@ public class LearningObjectResourceTest extends ResourceIntegrationTestBase {
     public void increaseViewCountNoPortfolio() {
         Response response = doPost(INCREASE_VIEW_COUNT_URL, portfolioWithId(99999L));
         assertEquals(500, response.getStatus());
+    }
+
+    private GenericType<List<LearningObject>> listOfLOs() {
+        return new GenericType<List<LearningObject>>() {
+        };
     }
 }
