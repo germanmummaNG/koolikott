@@ -14,10 +14,12 @@ public class FlywayDbMigrator implements FlywayMigrationStrategy {
     @Override
     public void migrate(Flyway flyway) {
         try {
+            flyway.setValidateOnMigrate(false);
             flyway.repair();
             flyway.migrate();
         } catch (final Exception e) {
             logger.error("Flyway migration failed, doing a repair and retrying ...");
+            flyway.setValidateOnMigrate(false);
             flyway.repair();
             flyway.migrate();
         }

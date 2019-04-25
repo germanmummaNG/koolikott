@@ -13,14 +13,18 @@ spring:
         jdbc:
           time_zone: UTC
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/dop?serverTimezone=UTC
+#    url: jdbc:mysql://127.0.0.1:3306/dop?serverTimezone=UTC
+    url: jdbc:mariadb://127.0.0.1:3306/dop?useMysqlMetadata=true
     username: root
     password: root
+    sqlScriptEncoding: UTF-8
+    characterEncoding: UTF-8
+
   flyway:
     outOfOrder: true
     baselineOnMigrate: true
     placeholderReplacement: false
-    locations: classpath:db/migration
+    locations: classpath:db/migration, classpath:db/initdb, classpath:db/initdata, classpath:db/users
   jackson:
     deserialization:
       fail-on-unknown-properties: false
