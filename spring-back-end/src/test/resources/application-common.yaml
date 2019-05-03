@@ -88,7 +88,10 @@ xroad:
     institutions:
       list: http://enda.ehis.ee/avaandmed/rest/oppeasutused/-/-/-/-/-/-/-/-/-/0/0/XML
       status: Suletud
-      type: koolieelne lasteasutus
+      type:
+        preschool: koolieelne lasteasutus
+        camp: noortelaager
+        extra: täienduskoolitusasutus
   # timeouts are in ms
   timeout:
     connect: 5000

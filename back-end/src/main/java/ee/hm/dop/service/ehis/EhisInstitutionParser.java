@@ -14,11 +14,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.inject.Inject;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
+import javax.xml.xpath.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,12 +48,18 @@ class EhisInstitutionParser {
             if (institutionEhisDao.findByField("ehisId", ie.getEhisId()) == null
                     && checkAreaExists(ie)
                     && checkStatusIsNotClosed(ie)
-                    && checkInstTypeIsNotPreSchool(ie)) {
-                    ie.setArea(ie.getArea().trim());
+                    && checkInstTypeIsNotPreSchool(ie)
+                    && checkInstTypeIsNotCamp(ie)
+                    && checkInstTypeIsNotExtra(ie)) {
+                ie.setArea(ie.getArea().trim());
                 institutionEhisDao.createOrUpdate(ie);
                 addCounter++;
             } else if (institutionEhisDao.findByField("ehisId", ie.getEhisId()) != null
-                    && (!checkAreaExists(ie) || !checkStatusIsNotClosed(ie) || !checkInstTypeIsNotPreSchool(ie))) {
+                    && (!checkAreaExists(ie)
+                    || !checkStatusIsNotClosed(ie)
+                    || !checkInstTypeIsNotExtra(ie)
+                    || !checkInstTypeIsNotCamp(ie)
+                    || !checkInstTypeIsNotPreSchool(ie))) {
                 institutionEhisDao.remove(ie);
                 removeCounter++;
             }
@@ -75,8 +77,17 @@ class EhisInstitutionParser {
         return !(institutionEhis.getStatus().equalsIgnoreCase(configuration.getString(ConfigurationProperties.XROAD_EHIS_INSTITUTIONS_STATUS)));
     }
     private boolean checkInstTypeIsNotPreSchool(InstitutionEhis institutionEhis){
-        return !(institutionEhis.getType().equalsIgnoreCase(configuration.getString(ConfigurationProperties.XROAD_EHIS_INSTITUTIONS_TYPE)));
+        return !(institutionEhis.getType().equalsIgnoreCase(configuration.getString(ConfigurationProperties.XROAD_EHIS_INSTITUTIONS_TYPE_PRESCHOOL)));
     }
+
+    private boolean checkInstTypeIsNotCamp(InstitutionEhis institutionEhis) {
+        return !(institutionEhis.getType().equalsIgnoreCase(configuration.getString(ConfigurationProperties.XROAD_EHIS_INSTITUTIONS_TYPE_CAMP)));
+    }
+
+    private boolean checkInstTypeIsNotExtra(InstitutionEhis institutionEhis) {
+        return !(institutionEhis.getType().equalsIgnoreCase(configuration.getString(ConfigurationProperties.XROAD_EHIS_INSTITUTIONS_TYPE_EXTRA)));
+    }
+
     private List<InstitutionEhis> getEhisInstitutions(Document document) {
         NodeList institutionsNode = getNodeList(document, "//*[local-name()='oppeasutus']");
         return IntStream.range(0, institutionsNode.getLength())

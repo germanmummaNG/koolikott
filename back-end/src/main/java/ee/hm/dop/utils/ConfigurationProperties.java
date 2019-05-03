@@ -73,7 +73,9 @@ public interface ConfigurationProperties {
 
     String XROAD_EHIS_INSTITUTIONS_LIST= "xroad.ehis.institutions.list";
     String XROAD_EHIS_INSTITUTIONS_STATUS = "xroad.ehis.institutions.status";
-    String XROAD_EHIS_INSTITUTIONS_TYPE = "xroad.ehis.institutions.type";
+    String XROAD_EHIS_INSTITUTIONS_TYPE_PRESCHOOL = "xroad.ehis.institutions.type.preschool";
+    String XROAD_EHIS_INSTITUTIONS_TYPE_EXTRA = "xroad.ehis.institutions.type.extra";
+    String XROAD_EHIS_INSTITUTIONS_TYPE_CAMP = "xroad.ehis.institutions.type.camp";
 
     // EKool
     String EKOOL_EXTRA_LOGGING = "ekool.extra.logging";
