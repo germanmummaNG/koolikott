@@ -193,11 +193,4 @@ public class LoginService {
         userAgreement.setCreatedAt(now());
         return userAgreement;
     }
-
-    private Person getPerson(User user, LoginFrom loginFrom) {
-        if (loginFrom.isDev()) {
-            return new Person();
-        }
-        return ehisSOAPService.getPersonInformation(user.getIdCode());
-    }
 }
