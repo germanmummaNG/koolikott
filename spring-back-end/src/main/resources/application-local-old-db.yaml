@@ -15,8 +15,7 @@ spring:
         jdbc:
           time_zone: UTC
   datasource:
-#    url: jdbc:mysql://127.0.0.1:3306/dop?serverTimezone=UTC
-#    url: jdbc:mariadb://127.0.0.1:3306/dop?useMysqlMetadata=true
+    url: jdbc:mysql://127.0.0.1:3306/dop?serverTimezone=UTC
     username: root
     password: root
   flyway:
